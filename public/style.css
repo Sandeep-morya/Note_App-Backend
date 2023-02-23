@@ -6,10 +6,8 @@
 body{
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     background-color: #123;
 }
 body *{
