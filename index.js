@@ -1,11 +1,11 @@
 ﻿const express = require("express");
 const cors = require("cors");
 /* Improt connection file from config */
-const {connection} = require("./Config/connection");
+const { connection } = require("./Config/connection");
 
 /* Import All Routes */
 const { userRoute } = require("./Routes/user.route");
-const {noteRoute} = require("./Routes/note.route")
+const { noteRoute } = require("./Routes/note.route");
 
 const app = express();
 const PORT = 8080;
@@ -15,8 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 /* Use All Routes as Middleware*/
+app.use(express.static("public"));
 app.use("/api/user", userRoute);
-app.use("/api/notes",noteRoute)
+app.use("/api/notes", noteRoute);
 
 /* Server Engine Control */
 app.listen(PORT, async () => {
