@@ -16,7 +16,8 @@ noteRoute.use((req, res, next) => {
 		const data = jwt.verify(token, KEY);
 		/* If token not verified it automaticaly goes in catch */
 		req.body.userID = data.user._id;
-		
+		/* It takes userID from the token that is provided in header &
+			appends it in the body */
 		next();
 	} catch (error) {
 		res.status(405).send("not allowed");
